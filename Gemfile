@@ -16,7 +16,7 @@ gem 'test-unit'
 gem 'faraday'
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'sqlite3'
+
 gem 'pg'
 gem 'cancan'
 gem 'twilio-ruby'
