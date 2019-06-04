@@ -14,7 +14,7 @@ gem 'factory_girl_rails'
 gem 'paperclip'
 gem 'test-unit'
 gem 'faraday'
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'bootstrap-sass'
 
 gem 'pg'
