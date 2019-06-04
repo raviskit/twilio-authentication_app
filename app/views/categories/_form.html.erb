@@ -1,0 +1,12 @@
+<%= form_for category do | f | %>
+  <table class = 'table'>
+    <tr>
+      <td><%=f.label :name %></td>
+      <td><%= f.text_field :name%></td>
+    <tr>
+      <tr>
+        <td><%= f.submit "Save"%></td>
+        <td></td>
+      </tr>
+  </table>
+<%end%>

@@ -1,0 +1,28 @@
+<%= @current_user.email.split("@").first.capitalize%>,
+
+<p>Welcome to Kalebr.com. Today, you joined more than 110 million people using the world's largest e-commerse platform to improve their shopping experiance.</p>
+<p> You have ordered <%= @ordered_items.count %> items</p>
+<p>Details are :</p>
+
+<% @ordered_items.each do | order_item | %>
+<div class="well">
+  <div class="row">
+    <div class="col-xs-8">
+      <h4><%= Product.find(order_item.product_id).title %></h4>
+    </div>
+    <div class="col-xs-4">
+        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price %></span></h4>
+        <div class="row">
+          <div class="col-xs-4">
+            <%= raw "<b>Item count :</b> #{order_item.quantity.to_i}" %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<%end%>
+<h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency @ordered_items.pluck(:total_price).inject(:+) %></span></h4>
+<p>
+  TEST
+<p>Kalebr.com</p>
+</p>

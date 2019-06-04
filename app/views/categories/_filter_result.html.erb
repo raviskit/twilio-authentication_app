@@ -1,0 +1,24 @@
+<div class="container">
+    <div id="products" class="row list-group">
+      <% category.each do | product |%>
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+             <img class="group list-group-image" src="<%= display_file(product) %>" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        <%= product.title.truncate(20) %></h4>
+                    <p class="group inner list-group-item-text">...</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                          <%= render "products/product_row", product: product, order_item: @order_item %>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%end%>
+    </div>
+</div>

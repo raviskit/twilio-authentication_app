@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/products" target="_self">Kalebr</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><a data-method="delete" href="/users/sign_out"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <% else %>
+        <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <% end %>
+    </ul>
+
+    <form class="navbar-form navbar-left">
+    <%= form_tag('/products', method: :get) do %>
+    <div class="form-group">
+      <%= text_field_tag 'search', @search, :style=>"width: 240px;", :class=>"form-control" %>
+        </div>
+      <%= submit_tag 'Search', :class=>"btn btn-default"%>
+  </form>
+  </div>
+  <div id="nav-subnav" class="" >
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+        <% if params[:action] == "index"%>
+        <li><a>Sort by category : <%= select_tag :category_id , options_for_select(Category.pluck(:name, :id)), :include_blank => "All", :class => "search_filter"%></a></li>
+        <li><a>Sort by price : <%= select_tag :price , options_for_select([["High to low", 'desc'], ["Low to high", "asc"]]), :include_blank => "select", :class => "search_filter"%></a></li>
+        <%end%>
+        <% if user_signed_in? %>
+          <li><a href="/products/order_history">Orders</a></li>
+        <%end%>
+        <% if can? :create, Product%>
+          <li><a href="/categories/new">Add Category</a></li>
+          <li><a href="/products/new">Create Product</a></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+<%end%>
+</nav>

@@ -1,0 +1,24 @@
+<table class = "table">
+  <tr>
+    <th>Category</th>
+    <th>Prodcut Title</th>
+    <th>Product Price</th>
+    <th>Quantity</th>
+    <th>Amount paid</th>
+    <th>Order Data</th>
+    <th>Status</th>
+    <th>Placed By</th>
+  </tr>
+  <% @order_history.each do | order | %>
+    <tr>
+      <td><%= order.product.category.name %></td>
+      <td><%= order.product.title %></td>
+      <td><%= order.product.price %></td>
+      <td><%= order.quantity %></td>
+      <td><%= order.total%></td>
+      <td><%= Date.today %></td>
+      <td><span style="color: green"><%= "Pending" %></span></td>
+      <td><%= link_to order.user.email, user_profile_path(id: order.user)%></td>
+    </tr>
+  <%end%>
+</table>

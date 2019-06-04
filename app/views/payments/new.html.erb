@@ -1,0 +1,32 @@
+<div class="container">
+<div id="send-pin">
+<h3>What's your phone number?</h3>
+<%= form_tag("/payments?product_id=#{params[:product_id]}", method: :post , remote: true) do %>
+  <table>
+    <tr>
+      <td><%= label_tag :phone_number%></td>
+      <td><%= text_field_tag :phone_number, current_user.phone_number%></td>
+    </tr>
+    <tr>
+      <td><%= submit_tag "Send OTP" , class: "btn btn-primary", id: 'send-pin-link'%></td>
+      <td></td>
+    </tr>
+  </table>
+<%end%>
+</div>
+
+<div id="verify-pin">
+<h3>Enter your PIN</h3>
+<%= form_tag payments_verify_path(product_id: params[:product_id]), remote: true do |f| %>
+  <%= hidden_field_tag 'hidden_phone_number', '' %>
+  <div class="form-group">
+    <%= text_field_tag :pin %>
+  </div>
+  <%= submit_tag "Verify PIN", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div id="status-box" class="alert alert-success">
+  <p id="status-message">Status: Haven’t done anything yet</p>
+</div>
+</div>

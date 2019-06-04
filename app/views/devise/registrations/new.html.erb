@@ -1,0 +1,68 @@
+<div class="container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title">Sign Up</div>
+        <div style="float:right; font-size: 80%; position: relative; top:-10px">
+      </div>
+      </div>
+
+      <div style="padding-top:30px" class="panel-body" >
+
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name) , :id=>"loginform", :class=>"form-horizontal") do |f| %>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <%= f.email_field :email, :id=> "login-username", :class=>"form-control", :placeholder=> "email", autofocus: true %>
+          </div>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <div style="margin-bottom: 25px" class="input-group">
+
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+          <%= f.password_field :password, :id=> "login-password", :class=>"form-control", :placeholder=>"password", autocomplete: "off" %>
+          </div>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <%= f.password_field :password_confirmation, :id=> "login-password", :class=>"form-control", :placeholder=>"confirm password", autocomplete: "off" %>
+          </div>
+
+          <!---->
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+          <%= f.text_field :country_code, :id=> "login-password", :class=>"form-control", :placeholder=>"Give correct country code", autocomplete: "off" %>
+          </div>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+          <%= f.text_field :phone_number, :id=> "login-password", :class=>"form-control", :placeholder=>"phone number", autocomplete: "off" %>
+          </div>
+
+
+
+          <div style="margin-top:10px" class="form-group">
+            <!-- Button -->
+
+            <div class="col-sm-12 controls">
+              <%= f.submit "Sign Up", :id=>"btn-login", :class=>"btn btn-success"%>
+            </div>
+          </div>
+      <%end%>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+</div>

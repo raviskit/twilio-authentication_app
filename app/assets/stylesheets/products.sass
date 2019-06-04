@@ -1,0 +1,45 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.glyphicon
+  margin-right: 5px
+
+.thumbnail
+  margin-bottom: 20px
+  padding: 0px
+  -webkit-border-radius: 0px
+  -moz-border-radius: 0px
+  border-radius: 0px
+
+
+.item.list-group-item
+  float: none
+  width: 100%
+  background-color: #fff
+  margin-bottom: 10px
+  &:nth-of-type(odd):hover, &:hover
+    background: #428bca
+  .list-group-image
+    margin-right: 10px
+  .thumbnail
+    margin-bottom: 0px
+  .caption
+    padding: 9px 9px 0px 9px
+  &:nth-of-type(odd)
+    background: #eeeeee
+  &:before, &:after
+    display: table
+    content: " "
+  img
+    float: left
+  &:after
+    clear: both
+
+.list-group-item-text
+  margin: 0 0 11px
+.thumbnail > img,
+.thumbnail a > img
+  max-height: 150px
+  min-height: 150px

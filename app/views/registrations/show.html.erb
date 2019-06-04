@@ -1,0 +1,13 @@
+<table class='table'>
+  <tr>
+    <th>User Email</th>
+    <th>Total purchase count</th>
+    <th>Last purchase</th>
+  </tr>
+  <tr>
+    <td><%= @user.email%></td>
+    <td><%= @user.orders.pluck(:quantity).inject(:+)%></td>
+    <td><%= @user.orders.last.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
+    <td></td>
+  </tr>
+</table>

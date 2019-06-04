@@ -1,0 +1,12 @@
+<% if current_user.otp_verified %>
+<% current_user.update({otp_verified: false})%>
+  $('#verify-pin').hide()
+  $('#status-box').removeClass()
+  $('#status-box').addClass('alert alert-success')
+  $('#status-message').text('Success!!')
+<% else %>
+  $('#status-box').removeClass()
+  $('#status-box').addClass('alert alert-warning')
+  $('#status-message').text("Sorry, that wasn't the right pin.")
+<% end %>
+$('#status-box').fadeToggle()

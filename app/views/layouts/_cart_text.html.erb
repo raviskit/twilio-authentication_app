@@ -1,0 +1,1 @@
+<%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.order_items.pluck(:total_price).inject(:+)} )", cart_path, class: "btn btn-link" %>
